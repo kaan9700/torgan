@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="../css/all.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+      <link rel="shortcut icon" href="">
+    <title>Start</title>
+    
+</head>
+<body>
+    <main>
+        <div class="all-content">
+           <div class="user_interface">
+               <table id="user_table">
+                   <tbody>
+                       <tr id="searchingbars">
+                           <td class="content-border-right search-tab">
+                                <input type="text" class="input-search" id="input-search-tags" onkeyup="filter_tags()" placeholder="Type to Search...">
+                                <button><i class="fa-solid fa-magnifying-glass search-symbol"></i></button>
+                           </td>
+                           <td class="search-tab">
+                                <input type="text" class="input-search" id="input-search-tagsC" onkeyup="filter_tagsC()"  placeholder="Type to Search...">
+                                <button id="lupe_c" title="Suche nach Sammlungen"><i class="fa-solid fa-magnifying-glass search-symbol"></i></button>
+                           </td>
+                       </tr>
+                       <tr id="searching-content">
+                            <td class="content-border-right" id="searching-tags">
+                                <div id="searching-tags-content">
+                                    
+                                </div>
+                            </td>
+                           <td id="searching-tagsC">
+                                <div id="searching-tagsC-content">
+                                    
+                                </div>    
+                           </td>
+                       </tr>
+                        <tr id="content-section-headline">    
+                            <td class="content-border-right">
+                                <div class="content-aligner">
+                                    <div class="content-header">
+                                        <form action="allquestions" method="post">
+                                            <input type="submit" value="Fragen" id="allQuestions">    
+                                        </form>
+                                    </div>
+                                    <div class="content-icons content-icons-qs">
+                                        <button id="change-tag-type" title="Aufgaben, passend zu allen Tags">
+                                            <i class="fa-solid fa-tag" id="tag-icon"></i>
+                                        </button>
+                                        <button id="lupe_q" title="Suche nach Fragen"><i class="fa-solid fa-magnifying-glass search-symbol"></i></button>
+                                        <button class="questions-details" id="selecting-more-questions" title="Bearbeite mehrere Fragen"><i class="fa-solid fa-ellipsis"></i></button>
+                                        <div id="myModal4" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <div class="more-tags">
+                                                    <h4>Mehrere Fragen verwalten</h4>
+                                                    <br>
+                                                    <div id="managed-multiple-questions">
+                                                        
+                                                    </div>
+                                                    <br>
+
+                                                    <div id="show-selected-tag">
+                                                        
+                                                    </div>
+                                                    <form action="addTagQMultiple" method="post" id="addTagQ-form-multiple">
+                                                        <input type="button" id="addTagQ-multiple" value="Neuer Tag"/>
+                                                        <input type="text" placeholder="Name" id="addTagQ-name-multiple" name="tag">
+                                                        <input type="text" id="addTagQ-text-multiple" value="" name="name">
+                                                    </form>
+                                                     <form action="deleteTagQMultiple" method="post">
+                                                        <input type="submit" id="deleteTagQ-multiple" value="Tag löschen"/>
+                                                        <input type="text" id="deleteTagQ-text-multiple" value="" name="name">
+                                                        <input type="text" id="deleteTagQ-tag-multiple" value="" name="tag">
+                                                    </form>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                        <button id="import-button" title="Importiere Moodle Aufgaben"><i class="fa-solid fa-file-import"></i></button>
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <div class="import">
+                                                    <h4>Moodle Datei hochladen</h4>
+                                                    <form id="import-form" action="/import" method="post" encType="multipart/form-data">
+                                                        <input type="file" accept="text/xml" name="file" required>
+                                                        <br>
+                                                        <input type="submit" id="submit-modal1" value="Senden">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form id="question_to_collection" name="addtocollection" action="addToCollection" method="post" >
+                                            <input type="text" class="forCollectionInfo" id="toCollection" name="questions" value="">
+                                            <input type="text" class="forCollectionInfo" id="forCollectionName" name="collection" value="">
+                                             <button title="Übertrage Aufgaben in ausgewählte Sammlung"><i class="fa-solid fa-file-export"></i></button>
+                                        </form>
+                                    </div>
+                                   
+                                </div>
+                                <br>
+                                <div id="search-tab-questions">
+                                    <input type="text" class="input-search" id="input-search-questions" onkeyup="filter_questions()"  placeholder="Type to Search...">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="content-aligner">
+                                    <div class="content-header">
+                                        <form action="allquestions" method="post">
+                                            <input type="submit" value="Sammlungen" id="allQuestions">    
+                                        </form>
+                                    </div>
+                                   
+                                    <div class="content-icons">
+                                        <div class="export-collection">
+                                            <form action="export" method="post">
+                                                <button name="name" value="" id="export-button" title="Exportiere Sammlung"><i class="fa-solid fa-file-export"></i></button>   
+                                            </form>
+                                        </div>
+                                        <form action="deleteFromCollection" method="post" id="deleteFromCollection-form">
+                                            <button id="delete-from-Collection" title="Entferne ausgewählte Fragen aus der Sammlung"><i class="fa-solid fa-minus"></i></button>
+                                             <input type="text" class="forCollectionInfo" id="toCollection2" name="questions" value="">
+                                            <input type="text" class="forCollectionInfo" id="forCollectionName2" name="collection" value="">
+                                        </form>
+                                        <button id="create-newCLass"><i title="Neue Sammlung" class="fa-solid fa-plus"></i></button>
+                                        
+                                    </div> 
+                                    <form id="createNewCollection_form" action="newCollection" method="post">
+                                    <input type="text" placeholder="Name" id="new-collection-name" onkeydown="createNewCollection(this)" name="name">
+                                </form>
+                                </div>
+                                
+                            </td>
+                       </tr>
+                        <tr>
+                            <td class="content-border-right question-section" id="questions-list">
+
+                            <!-- Liste mit exportierten Fragen-->
+                            <ul id="questions-collection-list" class="questions-collection-list">
+
+                                
+                            </ul>
+                                <div id="myModal2" class="modal">
+                                    <div class="modal-content question-detail-modal">
+                                        <span class="close">&times;</span>
+                                        <div id="question-details">
+                                            <div id="question-detail-name">
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <button id="show-question-description">Beschreibung   <i class="fa-solid fa-chevron-down" id="description-arrow"></i></button>
+                                            <br>
+                                            <br>
+                                            <div id="question-description">
+
+                                            </div>
+                                            <br>
+                                            <button id="show-question-answer">Antwort   <i class="fa-solid fa-chevron-down" id="answer-arrow"></i></button>
+                                            <br>
+                                            <br>
+                                            <div id="question-answer">
+                                                
+                                            </div>
+                                            <div id="question-detail-collection-div">
+                                                <div id="question-detail-collection">
+                                                </div>
+                                               
+                                                <div id="question-details-tags">
+                                                </div>
+                                                <div id="question-details-settings">
+                                                    <div id="question-details-settings-tags">
+                                                         <form action="addTagQ" method="post" id="addTagQ-form">
+                                                            <input type="button" id="addTagQ" value="Neuer Tag"/>
+                                                             <input type="text" placeholder="Name" id="addTagQ-name" name="tag">
+                                                            <input type="text" id="addTagQ-text" value="" name="name">
+                                                        </form>
+                                                        <form action="deleteTagQ" method="post">
+                                                            <input type="submit" id="deleteTagQ" value="Tag löschen"/>
+                                                            <input type="text" id="deleteTagQ-text" value="" name="name">
+                                                            <input type="text" id="deleteTagQ-tag" value="" name="tag">
+                                                        </form>   
+                                                    </div>
+                                                    <form action="deleteQuestion" method="post">
+                                                        <input type="submit" id="deleteQuestion" value="Frage löschen"/>
+                                                        <input type="text" id="deleteQuestion-text" value="" name="id">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                           <td class="collection-section">
+                               <ul class="questions-collection-list" id="collection-list">
+                                <% for(let i = 0; i<amount_collections; i++){ %>
+                                <li>
+                                    <input type="checkbox" onchange="selectCollection(this)" class="collectionCheck">
+                                    <form action="collectiondetails" method="post" class="collectiondetails-form">
+                                        <button id="collectiondetails" name="name" value="<%- all_collections[i].Name %>">
+                                             <p class="collection-title"><%- all_collections[i].Name %></p>   
+                                        </button>    
+                                    </form>
+                                   
+                                    <p class="collection-date"><%- all_collections[i].Datum %></p>
+                                     <button class="collection-details-button" id="collection-details<%=[i]%>"><i class="fa-solid fa-ellipsis"></i></button>
+                                        <form class="deleteCollection_form" action="deleteCollection" method="post">
+                                            <button class="delete-Collection" value="<%- all_collections[i].Name %>" name="name"><i class="fa-solid fa-trash"></i></button>   
+                                        </form>
+                                    </p>
+                                </li>
+                                <% } %>
+                               </ul>
+                               <div id="myModal3" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <div id="collection-tags">
+                                            <div id="collection-tags-name">
+                                            </div>
+                                            <div id="question-detail-collection-div">
+                                                <div id="collection-tags-list">
+                                                </div>
+                                                <div id="collection-tags-settings">
+                                                    <div id="collection-tags-settings-tags">
+                                                         <form action="addTagC" method="post" id="addTagC-form">
+                                                            <input type="button" id="addTagC" value="Neuer Tag"/>
+                                                             <input type="text" placeholder="Name" id="addTagC-name" name="tag">
+                                                            <input type="text" id="addTagC-text" value="" name="name">
+                                                        </form>
+                                                        <form action="deleteTagC" method="post">
+                                                            <input type="submit" id="deleteTagC" value="Tag löschen"/>
+                                                            <input type="text" id="deleteTagC-text" value="" name="name">
+                                                            <input type="text" id="deleteTagC-tag" value="" name="tag">
+                                                        </form>   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+        </div>
+    </main>
+</body>
+<script type="text/javascript" src="../scripts/toastify.js"></script>
+<script>
+
+
+    if('<%- message %>' != ""){
+                Toastify({
+                    text: '<%- message %>',
+                    duration: 3000,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "center", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                    background: "red",
+                    offset: {x: 0, y: 10}
+                    },
+                }).showToast();
+            }
+
+    let question_details = [<%- JSON.stringify(all_questions) %>]
+    let tags = [<%- JSON.stringify(tags) %>];
+    let tagsC = [<%- JSON.stringify(tagsC) %>];
+    let collections = [<%- JSON.stringify(all_collections) %>]
+    let coll_details = <%- JSON.stringify(collectionDetails) %>
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="../scripts/main.js"></script>
+</html>

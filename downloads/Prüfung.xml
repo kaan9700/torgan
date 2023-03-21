@@ -1,0 +1,2205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <!-- question: 0  -->
+    <question type="category">
+        <category>
+            <text>
+                Prüfung
+            </text>
+        </category>
+        <info format="moodle_auto_format">
+            <text></text>
+        </info>
+        <idnumber></idnumber>
+    </question>
+    <!-- question: 0  -->
+    <question type="category">
+        <category>
+            <text>
+                Prüfung
+            </text>
+        </category>
+        <info format="html">
+            <text></text>
+        </info>
+        <idnumber></idnumber>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                10.2. e) Römische Ziffer in Zahl umwandeln (Buchstabenkombination)
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;&lt;/p&gt;&lt;p dir=&quot;ltr&quot;&gt;Schreiben Sie ein Programm in C, welches aus einer einer einzelnen römischen Ziffer die entsprechende Dezimalzahl umwandelt. Hierfür soll die Ziffer mittels der Eingabe eingelesen werden.&amp;nbsp;&lt;/p&gt;&lt;p dir=&quot;ltr&quot;&gt;Verwenden Sie folgende Umwandlungstabelle:&amp;nbsp;&lt;/p&gt;&lt;p dir=&quot;ltr&quot;&gt;I=1 &amp;nbsp;V=5 &amp;nbsp;X=10 &amp;nbsp;L=50 &amp;nbsp;C=100 &amp;nbsp;D=500 &amp;nbsp;M=1000&lt;/p&gt;&lt;p dir=&quot;ltr&quot;&gt;Es kann nicht immer von den Nutzer:innen erwartet werden Großbuchstaben einzugeben, deshalb soll Ihr Program auch für Kleinbuchstaben gelten.&lt;/p&gt;&lt;p dir=&quot;ltr&quot;&gt;Erweitern Sie außerdem das Programm so, dass beliebig viele römische Ziffern eingegeben werden Können. Diese sollen dann zusammenaddiert werden und schließlich ausgegeben werden.&amp;nbsp;&lt;/p&gt;&lt;p dir=&quot;ltr&quot;&gt;Zudem soll eine weitere Tabelle mit implementiert werden. Dieses mal handelt es sich um Buchstabenkombinationen die das Programm erkennen und gemäß der unteren Tabelle verrechnen.&amp;nbsp;&lt;/p&gt;&lt;p dir=&quot;ltr&quot;&gt;Kombinationen:&lt;/p&gt;&lt;p dir=&quot;ltr&quot;&gt;IV = 4 &amp;nbsp; &amp;nbsp; IX = 9 &amp;nbsp; &amp;nbsp; XL = 40 &amp;nbsp; &amp;nbsp; XC = 90 &amp;nbsp; &amp;nbsp; CD = 400 &amp;nbsp; &amp;nbsp; CM = 900&lt;/p&gt;Bedenken Sie, dass auch hier sowohl Klein als auch Großbuchstaben verwendet werden können.&lt;br&gt;&lt;br&gt;&lt;p&gt;&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            18
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            #include &lt;stdio.h&gt;
+int main (){
+    
+}
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+int main (){
+    char eingabe[256];
+    int ausgabe = 0;
+    int length = 0;
+
+    scanf(&quot;%s&quot;, eingabe);
+    
+    while (eingabe[length] != &apos;\0&apos;){ /*Bestimmung der Länge des Strings*/
+        length++;
+    }
+    
+    
+  
+ for(int i = 0; i&lt;length; i++){
+     
+    
+    if(eingabe[i]==&apos;V&apos; || eingabe[i]==&apos;v&apos;){
+        ausgabe = ausgabe + 5;
+    }
+    
+    if(eingabe[i]==&apos;L&apos; || eingabe[i]==&apos;l&apos;){
+        ausgabe = ausgabe + 50;
+    }
+    
+    if(eingabe[i]==&apos;D&apos; || eingabe[i]==&apos;d&apos;){
+        ausgabe = ausgabe + 500;
+    } 
+    
+    if(eingabe[i]==&apos;M&apos; || eingabe[i]==&apos;m&apos;){
+        ausgabe = ausgabe + 1000;
+    } 
+    
+    if(eingabe[i] == &apos;I&apos; || eingabe[i]==&apos;i&apos;){
+        if(eingabe[i+1]== &apos;V&apos; || eingabe[i+1]==&apos;v&apos;){ /* IV*/
+            ausgabe = ausgabe + 4;
+            i = i + 1;
+            continue;
+            
+        }
+        if(eingabe[i+1]== &apos;X&apos; || eingabe[i+1]==&apos;x&apos;){ /* IX*/
+            ausgabe = ausgabe + 9;
+            i = i + 1;
+            continue;
+        }
+        if(eingabe[i+1] !=&apos;V&apos; &amp;&amp; eingabe[i+1] !=&apos;X&apos; &amp;&amp; eingabe[i+1] != &apos;v&apos; &amp;&amp; eingabe[i+1] !=&apos;x&apos;){
+            ausgabe = ausgabe + 1;
+        }
+    }
+    
+    
+    if(eingabe[i] == &apos;X&apos; || eingabe[i]==&apos;x&apos;){
+        if(eingabe[i+1]== &apos;L&apos; || eingabe[i+1]==&apos;l&apos;){ /* XL*/
+            ausgabe = ausgabe + 40;
+            i = i + 1;
+            continue;
+        }
+        if(eingabe[i+1]== &apos;C&apos; || eingabe[i+1]==&apos;c&apos;){ /* XC*/
+            ausgabe = ausgabe + 90;
+            i = i + 1;
+            continue;
+        }
+        if(eingabe[i+1] !=&apos;L&apos; &amp;&amp; eingabe[i+1] !=&apos;C&apos; &amp;&amp; eingabe[i+1] != &apos;l&apos; &amp;&amp; eingabe[i+1] !=&apos;c&apos;){
+            ausgabe = ausgabe + 10;
+        }
+    }
+    
+
+    
+    if(eingabe[i] == &apos;C&apos; || eingabe[i]==&apos;c&apos;){
+        if(eingabe[i+1]== &apos;D&apos; || eingabe[i+1]==&apos;d&apos;){ /* CD*/
+            ausgabe = ausgabe + 400;
+            i = i + 1;
+            continue;
+        }
+        if(eingabe[i+1]== &apos;M&apos; || eingabe[i+1]==&apos;m&apos;){ /* CM*/
+            ausgabe = ausgabe + 900;
+            i = i + 1;
+            continue;
+        } 
+        if(eingabe[i+1] !=&apos;D&apos; &amp;&amp; eingabe[i+1] !=&apos;M&apos; &amp;&amp; eingabe[i+1] != &apos;d&apos; &amp;&amp; eingabe[i+1] !=&apos;m&apos;){
+            ausgabe = ausgabe + 100;
+        }
+    }
+ }
+    printf(&quot;%d&quot;, ausgabe);
+    return 0;
+
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        MCMLXXXIV
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        1984
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        McDXcXI
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        1501
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        CMcmXcXL
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        1930
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        XLxCviMCD
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        1536
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        MCMCCdIXiv
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        2413
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                11.1. Blöcke
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Welche Zahlenwerte werden von dem folgenden Programm ausgegeben?&lt;br&gt;Analysieren Sie das Programm und ersetzen Sie die &quot;/*Ihre Eingabe*/&quot; in der im Folgenden&lt;br&gt;dargestellten Ausgabe durch die entsprechenden Ausgabewerte. Starten Sie das&lt;br&gt;Programm erst nach Ihrer Analyse.&lt;br&gt;&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            18
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            #include &lt;stdio.h&gt;
+
+int x = 5;
+
+void f1 (int * u) {
+    int x = 4;
+    *u = 6;
+    int t3 = /*Ihre Eingabe*/;
+    if(x == t3)
+        printf (&quot;\nf1 - der Wert von x ist %d&quot;, t3);
+}
+
+void f2 (int x) {
+    int t2 = /*Ihre Eingabe*/;
+    if(x == t2)
+        printf (&quot;\nf2 - der Wert von x ist %d&quot;, t2);
+}
+
+int main (void) {
+    int t1 = /*Ihre Eingabe*/;
+    if(x == t1)
+        printf (&quot;main - der Wert von x ist %d&quot;, t1);
+    f2 (7);
+    f1 (&amp;x);
+    
+    int t4 = /*Ihre Eingabe*/;
+    if(x == t4)
+        printf (&quot;\nmain - der Wert von x ist %d&quot;, t4);
+    return 0;
+}
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+
+int x = 5;
+
+void f1 (int * u) {
+    int x = 4;
+    *u = 6;
+    int t3 = 4;
+    if(x == t3)
+        printf (&quot;\nf1 - der Wert von x ist %d&quot;, t3);
+    t3 = x;
+}
+
+void f2 (int x) {
+    int t2 = 7;
+    if(x == t2)
+        printf (&quot;\nf2 - der Wert von x ist %d&quot;, t2);
+}
+
+int main (void) {
+    int t1 = 5;
+    int t4 = 6;
+    
+    if(x == t1)
+        printf (&quot;main - der Wert von x ist %d&quot;, t1);
+    f2 (7);
+    f1 (&amp;x);
+    if(x == t4)
+        printf (&quot;\nmain - der Wert von x ist %d&quot;, t4);
+    return 0;
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text></text>
+                </stdin>
+                <expected>
+                    <text>
+                        main - der Wert von x ist 5
+f2 - der Wert von x ist 7
+f1 - der Wert von x ist 4
+main - der Wert von x ist 6
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                11.10. Reihe rekursiv berechnen
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Gegeben sei die Reihe:&amp;nbsp;&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;&lt;img src=&quot;@@PLUGINFILE@@/Bildschirmfoto%202021-11-24%20um%2015.55.09.png&quot; alt=&quot;&quot; width=&quot;454&quot; height=&quot;38&quot; role=&quot;presentation&quot; class=&quot;img-responsive atto_image_button_text-bottom&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Die Reihe soll bei n = N abgebrochen werden (das N-te Glied wird noch aufsummiert). Die Werte für a, x und N werden im Dialog eingegeben. y soll &lt;strong&gt;rekursiv&lt;/strong&gt; berechnet und ausgegeben werden. Hierzu dient das folgende C Programm. Ergänzen Sie die fehlenden Teile:&amp;nbsp;&lt;/p&gt;
+            </text>
+            <file name="Bildschirmfoto 2021-11-24 um 15.55.09.png" path="/" encoding="base64">
+                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3fnX8+x2VXV1hV+lnrer3krkEIZgQAAEQAAEQAAEQAAEQAAEQAAEQAAEQAAELCOQCAIZy1gjIRAAARAAARAAARAAARAAARAAARAAARBQCEAgg4YAAiAAAiAAAiAAAiAAAiAAAiAAAiAAAhYTgEDGYuBIDgRAAARAAARAAARAAARAAARAAARAAAQgkEEbAAEQAAEQAAEQAAEQAAEQAAEQAAEQAAGLCUAgYzFwJAcCIAACIAACIAACIAACIAACIAACIAACEMigDYAACIAACIAACIAACIAACIAACIAACICAxQQgkLEYOJIDARAAARAAARAAARAAARAAARAAARAAAQhk0AZAAARAAARAAARAAARAAARAAARAAARAwGICEMhYDBzJgQAIgAAIgAAIgAAIgAAIgAAIgAAIgAAEMmgDIAACIAACIAACIAACIAACIAACIAACIGAxAQhkLAaO5EAABEAABEAABEAABEAABEAABEAABEAAAhm0ARAAARAAARAAARAAARAAARAAARAAARCwmAAEMhYDR3IgAAIgAAIgAAIgAAIgAAIgAAIgAAIgAIEM2gAIgAAIgAAIgAAIgAAIgAAIgAAIgAAIWEwAAhmLgSM5EAABEAABEAABEAABEAABEAABEAABEIBABm0ABEAABEAABEAABEAABEAABEAABEAABCwmAIGMxcCRHAiAAAiAAAiAAAiAAAiAAAiAAAiAAAhAIIM2AAIgAAIgAAIgAAIgAAIgAAIgAAIgAAIWE4BAxmLgSA4EQAAEQAAEQAAEQAAEQAAEQAAEQAAEIJBBGwABEAABEAABEAABEAABEAABEAABEAABiwlAIGMxcCQHAiAQeAK//fYbrVu7XslIkSKFqbD4gyH6448/6KefflJQZMyY0VAkN2/cpAMHwpU469WvS6+++qqh8fsT2elTp+ncufP0j3/8g1q0bO7Powky7JHDR+jKlatK2dp3eC9BltGfQj158oSePH5Cr772KiVKlMifR3WFtVNfeP78Oa1bs46ev3hBpUuXojx58+gqAwKBgFkEMD87yQbr2Pzg/gN69vwZpUyRklKmSukE4mYzcy7HOO0GG05TCUAgYypeRA4CIGBHAiOGjaClS5YpP7Z2791FBQsWtGM2Lc9T545daMdnO5R0v7t319D0Z06fSRMnfKzEGRYRRnny5DY0fn8iW79uPfXv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
+            </file>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            18
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            #include &lt;stdio.h&gt;
+
+void einlesen(. . . .){
+    
+    printf(&quot;Gib einen ganzzahligen Wert fuer a ein: &quot;);
+        scanf(&quot;%d&quot;, u);
+    printf(&quot;\nGib einen reellen Wert fuer x ein: &quot;);
+        scanf(&quot;%f&quot;, v);
+    printf(&quot;\nGib einen ganzzahligen Wert fuer N ein: &quot;);
+        scanf(&quot;%d&quot;, w);
+}
+
+float reku(int p1, int p2, int p3){
+    
+    . . . .
+    
+}
+
+void ausgeben(float z){
+    
+    printf(&quot;\nDie Summe der Reihe ist: %.2f&quot;, z);
+    
+}
+
+int main (void){
+    
+    int a,N;
+    float x, summe_rek;
+    
+    einlesen(&amp;a, &amp;x, &amp;N);
+    summe_rek = reku(a, x, N);
+    ausgeben(summe_rek);
+    
+    return 0;
+}
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+
+void einlesen(int * u, float * v, int * w){
+    
+    printf(&quot;Gib einen ganzzahligen Wert fuer a ein: &quot;);
+        scanf(&quot;%d&quot;, u);
+    printf(&quot;\nGib einen reellen Wert fuer x ein: &quot;);
+        scanf(&quot;%f&quot;, v);
+    printf(&quot;\nGib einen ganzzahligen Wert fuer N ein: &quot;);
+        scanf(&quot;%d&quot;, w);
+}
+
+float reku (int p1, float p2, int p3){
+
+    if(p3 !=0){
+    
+        return (p1+(p3*p2)) + reku(p1,p2,p3-1);
+    }
+    else{
+        return (p1+(p3*p2));
+    }
+}
+
+void ausgeben(float z){
+    
+    printf(&quot;\nDie Summe der Reihe ist: %.2f&quot;, z);
+    
+}
+
+int main (void){
+    
+    int a,N;
+    float x, summe_rek;
+    
+    einlesen(&amp;a, &amp;x, &amp;N);
+    summe_rek = reku(a, x, N);
+    ausgeben(summe_rek);
+    
+    return 0;
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        2
+2.5
+5
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Gib einen ganzzahligen Wert fuer a ein:
+Gib einen reellen Wert fuer x ein:
+Gib einen ganzzahligen Wert fuer N ein:
+Die Summe der Reihe ist: 49.50
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4
+0.6
+18
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Gib einen ganzzahligen Wert fuer a ein:
+Gib einen reellen Wert fuer x ein:
+Gib einen ganzzahligen Wert fuer N ein:
+Die Summe der Reihe ist: 178.60
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        9
+5.2
+2
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Gib einen ganzzahligen Wert fuer a ein:
+Gib einen reellen Wert fuer x ein:
+Gib einen ganzzahligen Wert fuer N ein:
+Die Summe der Reihe ist: 42.60
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        8
+4.4
+3
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Gib einen ganzzahligen Wert fuer a ein:
+Gib einen reellen Wert fuer x ein:
+Gib einen ganzzahligen Wert fuer N ein:
+Die Summe der Reihe ist: 58.40
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4
+2.5
+5
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Gib einen ganzzahligen Wert fuer a ein:
+Gib einen reellen Wert fuer x ein:
+Gib einen ganzzahligen Wert fuer N ein:
+Die Summe der Reihe ist: 61.50
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        7
+3.3
+9
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Gib einen ganzzahligen Wert fuer a ein:
+Gib einen reellen Wert fuer x ein:
+Gib einen ganzzahligen Wert fuer N ein:
+Die Summe der Reihe ist: 218.50
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                11.3. Rückgabe mit return und über Parameterliste
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Das folgende Programm dient zur Berechnung des Durchschnitts von 10 int-Zahlen, die im Dialog eingegeben werden. Der berechnete Durchschnitt wird dann von der Funktion &quot;durchschnitt1( )&quot; über Parameterliste und von der Funktion &quot;durchschnitt2( )&quot; mit return zurückgegeben. Schreiben Sie die Funktionen &quot;einlesen( )&quot;, &quot;durchschnitt1( )&quot; &amp;nbsp;und &quot;durchschnitt2( )&quot;.&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Fehlende Teile sind mit ... gekennzeichnet.&amp;nbsp;&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            26
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            #include &lt;stdio.h&gt;
+#define MAX 10 
+
+/*Globale Variablen*/
+int eingabe[MAX]; 
+
+void einlesen (void);
+void durchschnitt1 (float *);
+float durchschnitt2 (void);
+
+int main (void){
+float erg;
+einlesen();
+durchschnitt1 (&amp;erg);
+printf (&quot;Der Durchschnitt der eingegebenen Zahlen ist: %.2f&quot;,erg);
+erg = durchschnitt2(); 
+printf (&quot;\nDer Durchschnitt der eingegebenen Zahlen ist: %.2f&quot;,erg);
+ return 0;
+}
+
+void einlesen (void){
+int lv;
+   for (lv = 0; lv &lt; MAX; lv ++){
+        scanf (....); /*Eingabe*/
+    }
+}
+
+....
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+#define MAX 10
+
+int eingabe[MAX];
+void einlesen (void);
+void durchschnitt1 (float *);
+float durchschnitt2 (void);
+
+int main (void){
+float erg;
+einlesen();
+durchschnitt1 (&amp;erg);
+printf (&quot;Der Durchschnitt der eingegebenen Zahlen ist: %.2f&quot;,erg);
+erg = durchschnitt2(); 
+printf (&quot;\nDer Durchschnitt der eingegebenen Zahlen ist: %.2f&quot;,erg);
+ return 0;
+}
+
+void einlesen (void){
+int lv;
+   for (lv = 0; lv &lt; MAX; lv ++){
+        scanf (&quot;%d&quot;, &amp;eingabe[lv]);
+    }
+}
+
+void durchschnitt1(float * erg){
+    int add = 0;
+    for(int i = 0; i&lt;MAX; i++){
+        add = add + eingabe[i];
+    }
+    *erg = (float)add/MAX;
+}
+
+float durchschnitt2(void){
+    int add = 0;
+    float erg;
+    for(int i = 0; i&lt;MAX; i++){
+        add = add + eingabe[i];
+    }
+    erg = (float)add/MAX;
+    return erg;
+}
+        </answer>
+        <validateonsave>
+            0
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Der Durchschnitt der eingegebenen Zahlen ist: 5.50
+Der Durchschnitt der eingegebenen Zahlen ist: 5.50
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        26
+44
+21
+78
+29
+12
+57
+66
+37
+9
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Der Durchschnitt der eingegebenen Zahlen ist: 37.90
+Der Durchschnitt der eingegebenen Zahlen ist: 37.90
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        11
+13
+15
+12
+14
+16
+17
+19
+18
+20
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Der Durchschnitt der eingegebenen Zahlen ist: 15.50
+Der Durchschnitt der eingegebenen Zahlen ist: 15.50
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        36
+15
+25
+75
+92
+42
+68
+75
+85
+77
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Der Durchschnitt der eingegebenen Zahlen ist: 59.00
+Der Durchschnitt der eingegebenen Zahlen ist: 59.00
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                11.4. Simulation von call by reference
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Schreiben Sie ein C Programm, welches eine Funktion namens &quot;einlesen&quot; besitzt. Diese Funktion hat zwei Zeiger auf Float-Variablen. Die Funktion soll die Aufgabe haben, zwei werte einzulesen und &amp;nbsp;in den zuvor genannten Variablen zu speichern.&amp;nbsp;&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Im main Teil des Programms sollen zwei weitere Float-Variablen namens &quot;a&quot; und &quot;b&quot; erstellt werden. Diesen Variablen soll der Wert von x und y übergeben werden. Anschließend sollen a und b auf zwei Nachkommastellen genau untereinander im main ausgegeben werden.&amp;nbsp;&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            25
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            #include &lt;stdio.h&gt;
+void einlesen (float * x, float * y){
+/* Hier die Funktion Programmieren*/
+}
+int main (){
+
+}
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+void einlesen (float * x, float * y){
+
+   scanf (&quot;%e %e&quot;, x, y);
+}
+
+
+int main (){
+float a, b;
+einlesen (&amp;a, &amp;b);
+
+   printf (&quot;%.2f&quot;, a);
+   printf (&quot;\n%.2f&quot;, b);
+   return 0;
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        5 6
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        5.00
+6.00
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        26 11
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        26.00
+11.00
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        3 12
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        3.00
+12.00
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        18
+19
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        18.00
+19.00
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        21 22
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        21.00
+22.00
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                Gerade Zahlen aufaddieren
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Schreiben Sie ein Programm, dass alle geraden natürlichen Zahlen bis zu einer Obergrenze aufsummiert. Die Grenze soll dabei im Dialog eingelesen werden.&amp;nbsp;&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Geben Sie lediglich das Ergebnis aus.&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            18
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            #include &lt;stdio.h&gt;
+
+int main()
+{
+
+    return 0;
+}
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+
+int main()
+{
+    
+    int zahl, summe = 0;
+    scanf(&quot;%d&quot;, &amp;zahl);
+    
+    for(int i = 1; i&lt;=zahl; i++){
+        
+        if(i % 2 == 0){
+            summe = summe + i;
+        }
+    }
+    
+    printf(&quot;%d&quot;, summe);
+    return 0;
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        10
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        30
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        26
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        182
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        15
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        56
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        29
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        210
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        55
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        756
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                Gerade und ungerade Zahlen aufsummieren
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Erweitern Sie das Programm aus der Aufgabe zuvor, dass ein Char eingelesen wird. Abhängig vom Wert (g oder u) werden entweder bis zur Grenze alle geraden oder ungeraden Zahlen aufaddiert.&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Achten Sie auch darauf, dass sowohl Großbuchstaben, als auch Kleinbuchstaben eingelesen werden können&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            18
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            #include &lt;stdio.h&gt;
+
+int main()
+{
+
+    return 0;
+}
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+
+int main()
+{
+    
+    int zahl, summe = 0;
+    char u;
+    scanf(&quot;%d %c&quot;, &amp;zahl, &amp;u);
+    
+    
+    
+    for(int i = 1; i&lt;=zahl; i++){
+    switch(u){ 
+        
+        case &apos;g&apos;:
+        case &apos;G&apos;:
+        if(i % 2 == 0){
+            summe = summe + i;
+        }
+        
+        break;
+        
+        case &apos;u&apos;:
+        case &apos;U&apos;:
+        if(i % 2 != 0){
+            summe = summe + i;
+        }
+        break;
+    }
+    }
+    printf(&quot;%d&quot;, summe);
+    return 0;
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        25 u
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        169
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        25 g
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        156
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        10 G
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        30
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        10 U
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        25
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        33 u
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        289
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                Größte Zahl aus Array finden
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Schreiben Sie ein Programm, dass die größte Zahl aus einem Array ausgibt.&amp;nbsp;&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Dafür soll ein Array der Größe 10 über die Eingabe mit natürlichen Zahlen gefüllt werden. Anschließend soll die größte Zahl aus dem Array ausgegeben werden.&amp;nbsp;&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            18
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            #include &lt;stdio.h&gt;
+
+int main()
+{
+
+    return 0;
+}
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+
+int main()
+{
+    
+    int arr[10];
+    int max;
+    for(int i = 0; i&lt;10; i++){
+        scanf(&quot;%d&quot;, &amp;arr[i]);
+    }
+
+    max = arr[0];
+    
+    for(int i = 0; i&lt;10; i++){
+        if(arr[i] &gt; max){
+            max = arr[i];
+        }
+    }
+    printf(&quot;%d&quot;, max);
+    return 0;
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        1 2 3 4 5 6 7 8 9 0
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        9
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        3 5 23 4 11 29 33 10 29 30
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        33
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        26 24 36 10 9 72 69 88 85 79
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        88
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        36 32 28 29 24 13 92 2 76 9
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        92
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        33 67 76 52 90 40 30 48 86 30
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        90
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+</quiz>

@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <!-- question: 0  -->
+    <question type="category">
+        <category>
+            <text>
+                GIP23
+            </text>
+        </category>
+        <info format="moodle_auto_format">
+            <text></text>
+        </info>
+        <idnumber></idnumber>
+    </question>
+    <!-- question: 0  -->
+    <question type="category">
+        <category>
+            <text>
+                GIP23
+            </text>
+        </category>
+        <info format="html">
+            <text></text>
+        </info>
+        <idnumber></idnumber>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                Einfacher Taschenrechner
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;&lt;/p&gt;&lt;p&gt;Programmieren Sie einen einfachen Taschenrechner, welcher die vier
+Grundrechenarten beherrscht. Der Nutzer gibt dazu zwei Operanden ein und die
+gewünschte Rechenoperation. Auf der Konsole sollen Aufgabe und Ergebnis
+ausgegeben werden.&lt;/p&gt;
+
+&lt;p&gt;Überlegen Sie welche Datentypen sinnvoll sind!&lt;/p&gt;
+
+&lt;p&gt;Welche Kontrollstruktur eignet sich am besten?&lt;/p&gt;
+
+&lt;p&gt;Was passiert bei Eingabe von ungültigen Werten (z. B Sonderzeichen,
+Division durch Null, Buchstaben, negativen Zahlen...)?&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Die Ausgaben sollen wie folgt aussehen (die &lt;strong&gt;fett-gedruckten&lt;/strong&gt; Teile sind Eingaben des Nutzers):&lt;/p&gt;&lt;p&gt;Beispiel 1:&lt;/p&gt;&lt;div style=&quot;margin-left: 30px;&quot; class=&quot;editor-indent&quot;&gt;&lt;p&gt;Geben Sie die erste Zahl ein: &lt;strong&gt;4&lt;/strong&gt;&lt;br&gt;Geben Sie die Operation ein: &lt;strong&gt;+&lt;/strong&gt;&lt;br&gt;Geben Sie die zweite Zahl ein: &lt;strong&gt;5&lt;/strong&gt;&lt;br&gt;Das Ergebnis lautet: 9.000000&lt;/p&gt;&lt;/div&gt;&lt;div style=&quot;margin-left: 30px;&quot; class=&quot;editor-indent&quot;&gt;&lt;p&gt;--&gt; analog für die anderen Recharten&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Beispiel 2:&lt;br&gt;&lt;/p&gt;&lt;div style=&quot;margin-left: 30px;&quot; class=&quot;editor-indent&quot;&gt;&lt;p&gt;Geben Sie die erste Zahl ein: &lt;strong&gt;a&lt;/strong&gt;&lt;br&gt;Der erste Operand ist keine Zahl!&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Beispiel 3:&lt;/p&gt;&lt;div style=&quot;margin-left: 30px;&quot; class=&quot;editor-indent&quot;&gt;&lt;p&gt;Geben Sie die erste Zahl ein: &lt;strong&gt;4&lt;/strong&gt;&lt;br&gt;Geben Sie die Operation ein: &lt;strong&gt;+&lt;/strong&gt;&lt;br&gt;Geben Sie die zweite Zahl ein: &lt;strong&gt;a&lt;/strong&gt;&lt;br&gt;Der zweite Operand ist keine Zahl!&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Beispiel 4:&lt;/p&gt;&lt;div style=&quot;margin-left: 30px;&quot; class=&quot;editor-indent&quot;&gt;&lt;p&gt;Geben Sie die erste Zahl ein: &lt;strong&gt;4&lt;/strong&gt;&lt;br&gt;Geben Sie die Operation ein: &lt;strong&gt;/&lt;/strong&gt;&lt;br&gt;Geben Sie die zweite Zahl ein: &lt;strong&gt;0&lt;/strong&gt;&lt;br&gt;Es kann nicht durch Null dividiert werden!&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Beispiel 5:&lt;/p&gt;&lt;div style=&quot;margin-left: 30px;&quot; class=&quot;editor-indent&quot;&gt;&lt;p&gt;Geben Sie die erste Zahl ein: &lt;strong&gt;4&lt;/strong&gt;&lt;br&gt;Geben Sie die Operation ein: &lt;strong&gt;a&lt;/strong&gt;&lt;br&gt;Geben Sie die zweite Zahl ein: &lt;strong&gt;5&lt;/strong&gt;&lt;br&gt;Der Operator wurde nicht korrekt eingegeben!&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            18
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload></answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+
+int main(void)
+{
+    // Erzeuge Variablen für die Ein- und Ausgabe
+    double operand1 = 0.0;
+    char operation = 0;
+    double operand2 = 0.0;
+    double ergebnis = 0.0;
+    
+    // Frage nach den Eingaben
+    printf(&quot;Geben Sie die erste Zahl ein:\n&quot;);
+    if(scanf(&quot;%lf&quot;, &amp;operand1) != 1)
+    {
+        printf(&quot;Der erste Operand ist keine Zahl!\n&quot;);
+        return -1;
+    }
+    
+    getc(stdin);
+    
+    printf(&quot;Geben Sie die Operation ein:\n&quot;);
+    scanf(&quot;%c&quot;, &amp;operation);
+    
+    printf(&quot;Geben Sie die zweite Zahl ein:\n&quot;);
+    if(scanf(&quot;%lf&quot;, &amp;operand2) != 1)
+    {
+        printf(&quot;Der zweite Operand ist keine Zahl!\n&quot;);
+        return -1;
+    }
+    
+    // Berechnung das Ergebnises
+    switch(operation)
+    {
+        case &apos;+&apos;:
+            ergebnis = operand1 + operand2;
+            break;
+        case &apos;-&apos;:
+            ergebnis = operand1 - operand2;
+            break;
+        case &apos;*&apos;:
+            ergebnis = operand1 * operand2;
+            break;
+        case &apos;/&apos;:
+            if(operand2 == 0)
+            {
+                printf(&quot;Es kann nicht durch Null dividiert werden!\n&quot;);
+                return -1;
+            }
+            else
+            {
+                ergebnis = operand1 / operand2;
+                break;
+            }    
+        default:
+            printf(&quot;Der Operator wurde nicht korrekt eingegeben!\n&quot;);
+            return -1;
+    }
+    
+    printf(&quot;Das Ergebnis lautet: %lf\n&quot;, ergebnis);
+    
+    return 1;
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        4
++
+5
+                    </text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4
++
+5
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Das Ergebnis lautet: 9.000000
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        4
+-
+5
+                    </text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4
+-
+5
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Das Ergebnis lautet: -1.000000
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        4
+*
+5
+                    </text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4
+*
+5
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Das Ergebnis lautet: 20.000000
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        4
+/
+5
+                    </text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4
+/
+5
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Das Ergebnis lautet: 0.800000
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        a
+                    </text>
+                </testcode>
+                <stdin>
+                    <text>
+                        a
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Geben Sie die erste Zahl ein:
+Der erste Operand ist keine Zahl!
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        4
++
+a
+                    </text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4
++
+a
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Der zweite Operand ist keine Zahl!
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        4
+/
+0
+                    </text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4
+/
+0
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Es kann nicht durch Null dividiert werden!
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        4
+a
+5
+                    </text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4
+a
+5
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Der Operator wurde nicht korrekt eingegeben!
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                Sortierfunktion
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Vervollständigen Sie die Funktion so, dass das Eingabearray aufsteigend (x &lt; y &lt; z) sortiert wird.&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Beispiel: 3,1,2 -&gt; 1,2,3&lt;br&gt;&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            1
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_function
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            18
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            void sort(int arrLen, int arr[]) {
+    //Ihr Kode hier.
+}
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            void sort(int arrLen, int arr[]) {
+    int tmp;
+    int swapped = 0;
+    do {
+        swapped = 0;
+        for(int i=0; i&lt;arrLen-1; i++) {
+            if(arr[i] &gt; arr[i+1]) {
+                swapped = 1;
+                tmp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = tmp;
+            }
+        }
+    } while(swapped != 0);
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        int arr[] = {1,2,3,4,5,6,7,8,9,10};
+sort(10,arr);
+for(int i=0; i&lt;10; i++) 
+    printf(&quot;%d\n&quot;,arr[i]);
+                    </text>
+                </testcode>
+                <stdin>
+                    <text></text>
+                </stdin>
+                <expected>
+                    <text>
+                        1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        int arr[] = {5,6,1,8,9,3};
+sort(6,arr);
+for(int i=0; i&lt;6; i++) 
+    printf(&quot;%d\n&quot;,arr[i]);
+                    </text>
+                </testcode>
+                <stdin>
+                    <text></text>
+                </stdin>
+                <expected>
+                    <text>
+                        1
+3
+5
+6
+8
+9
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        int arr[] = {1,-2,3,-4,5,-6,7,-8,9,-10};
+sort(10,arr);
+for(int i=0; i&lt;10; i++) 
+    printf(&quot;%d\n&quot;,arr[i]);
+                    </text>
+                </testcode>
+                <stdin>
+                    <text></text>
+                </stdin>
+                <expected>
+                    <text>
+                        -10
+-8
+-6
+-4
+-2
+1
+3
+5
+7
+9
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        int arr[] = {-1,2,-3,4,-5,6,-7,8,-9,10};
+sort(10,arr);
+for(int i=0; i&lt;10; i++) 
+    printf(&quot;%d\n&quot;,arr[i]);
+                    </text>
+                </testcode>
+                <stdin>
+                    <text></text>
+                </stdin>
+                <expected>
+                    <text>
+                        -9
+-7
+-5
+-3
+-1
+2
+4
+6
+8
+10
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text>
+                        int arr[] = {7,4,3,4,5,4,7,-8,35,1};
+sort(10,arr);
+for(int i=0; i&lt;10; i++) 
+    printf(&quot;%d\n&quot;,arr[i]);
+                    </text>
+                </testcode>
+                <stdin>
+                    <text></text>
+                </stdin>
+                <expected>
+                    <text>
+                        -8
+1
+3
+4
+4
+4
+5
+7
+7
+35
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+    <question type="coderunner">
+        <name>
+            <text>
+                Kodekorrektur cast
+            </text>
+        </name>
+        <questiontext format="html">
+            <text>
+                &lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Irgendetwas stimmt im Programm nicht.&lt;/p&gt;&lt;p dir=&quot;ltr&quot; style=&quot;text-align: left;&quot;&gt;Bitte beheben Sie den Fehler.&lt;br&gt;&lt;/p&gt;
+            </text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>
+            2
+        </defaultgrade>
+        <penalty>
+            0
+        </penalty>
+        <hidden>
+            0
+        </hidden>
+        <idnumber></idnumber>
+        <coderunnertype>
+            c_program
+        </coderunnertype>
+        <prototypetype>
+            0
+        </prototypetype>
+        <allornothing>
+            1
+        </allornothing>
+        <penaltyregime>
+            10, 20, ...
+        </penaltyregime>
+        <precheck>
+            0
+        </precheck>
+        <hidecheck>
+            0
+        </hidecheck>
+        <showsource>
+            0
+        </showsource>
+        <answerboxlines>
+            18
+        </answerboxlines>
+        <answerboxcolumns>
+            100
+        </answerboxcolumns>
+        <answerpreload>
+            #include &lt;stdio.h&gt;
+
+int main() {
+    int a, b;
+    scanf(&quot;%d %d&quot;,&amp;a,&amp;b);
+    printf(&quot;%.2lf&quot;,a/b);
+    return 0;
+}
+        </answerpreload>
+        <globalextra></globalextra>
+        <useace></useace>
+        <resultcolumns></resultcolumns>
+        <template></template>
+        <iscombinatortemplate></iscombinatortemplate>
+        <allowmultiplestdins></allowmultiplestdins>
+        <answer>
+            #include &lt;stdio.h&gt;
+
+int main() {
+    int a, b;
+    scanf(&quot;%d %d&quot;,&amp;a,&amp;b);
+    printf(&quot;%.2lf&quot;,a/(double)b);
+    return 0;
+}
+        </answer>
+        <validateonsave>
+            1
+        </validateonsave>
+        <testsplitterre></testsplitterre>
+        <language></language>
+        <acelang></acelang>
+        <sandbox></sandbox>
+        <grader></grader>
+        <cputimelimitsecs></cputimelimitsecs>
+        <memlimitmb></memlimitmb>
+        <sandboxparams></sandboxparams>
+        <templateparams></templateparams>
+        <hoisttemplateparams>
+            1
+        </hoisttemplateparams>
+        <templateparamslang>
+            None
+        </templateparamslang>
+        <templateparamsevalpertry>
+            1
+        </templateparamsevalpertry>
+        <templateparamsevald>
+            {}
+        </templateparamsevald>
+        <twigall>
+            0
+        </twigall>
+        <uiplugin></uiplugin>
+        <uiparameters></uiparameters>
+        <attachments>
+            0
+        </attachments>
+        <attachmentsrequired>
+            0
+        </attachmentsrequired>
+        <maxfilesize>
+            10240
+        </maxfilesize>
+        <filenamesregex></filenamesregex>
+        <filenamesexplain></filenamesexplain>
+        <displayfeedback>
+            1
+        </displayfeedback>
+        <testcases>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        2 3
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        0.67
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        10 3
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        3.33
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        100 10
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        10
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        1 4
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        0.25
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        5 5
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        1
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        HIDE
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        4 4
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        1
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+            <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+                <testcode>
+                    <text></text>
+                </testcode>
+                <stdin>
+                    <text>
+                        12 5
+                    </text>
+                </stdin>
+                <expected>
+                    <text>
+                        2.4
+                    </text>
+                </expected>
+                <extra>
+                    <text></text>
+                </extra>
+                <display>
+                    <text>
+                        SHOW
+                    </text>
+                </display>
+            </testcase>
+        </testcases>
+    </question>
+</quiz>

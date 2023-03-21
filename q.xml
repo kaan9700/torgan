@@ -1,0 +1,1781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Standard für B2500036-WiSe202122</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text>Standardkategorie für Fragen, die im Kontext 'B2500036-WiSe202122' freigegeben sind.</text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 7607888  -->
+  <question type="coderunner">
+    <name>
+      <text>Einfacher Taschenrechner</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"></p><p>Programmieren Sie einen einfachen Taschenrechner, welcher die vier
+Grundrechenarten beherrscht. Der Nutzer gibt dazu zwei Operanden ein und die
+gewünschte Rechenoperation. Auf der Konsole sollen Aufgabe und Ergebnis
+ausgegeben werden.</p>
+
+<p>Überlegen Sie welche Datentypen sinnvoll sind!</p>
+
+<p>Welche Kontrollstruktur eignet sich am besten?</p>
+
+<p>Was passiert bei Eingabe von ungültigen Werten (z. B Sonderzeichen,
+Division durch Null, Buchstaben, negativen Zahlen...)?</p><p><br></p><p>Die Ausgaben sollen wie folgt aussehen (die <strong>fett-gedruckten</strong> Teile sind Eingaben des Nutzers):</p><p>Beispiel 1:</p><div style="margin-left: 30px;" class="editor-indent"><p>Geben Sie die erste Zahl ein: <strong>4</strong><br>Geben Sie die Operation ein: <strong>+</strong><br>Geben Sie die zweite Zahl ein: <strong>5</strong><br>Das Ergebnis lautet: 9.000000</p></div><div style="margin-left: 30px;" class="editor-indent"><p>--&gt; analog für die anderen Recharten</p></div><p>Beispiel 2:<br></p><div style="margin-left: 30px;" class="editor-indent"><p>Geben Sie die erste Zahl ein: <strong>a</strong><br>Der erste Operand ist keine Zahl!</p></div><p>Beispiel 3:</p><div style="margin-left: 30px;" class="editor-indent"><p>Geben Sie die erste Zahl ein: <strong>4</strong><br>Geben Sie die Operation ein: <strong>+</strong><br>Geben Sie die zweite Zahl ein: <strong>a</strong><br>Der zweite Operand ist keine Zahl!</p></div><p>Beispiel 4:</p><div style="margin-left: 30px;" class="editor-indent"><p>Geben Sie die erste Zahl ein: <strong>4</strong><br>Geben Sie die Operation ein: <strong>/</strong><br>Geben Sie die zweite Zahl ein: <strong>0</strong><br>Es kann nicht durch Null dividiert werden!</p></div><p>Beispiel 5:</p><div style="margin-left: 30px;" class="editor-indent"><p>Geben Sie die erste Zahl ein: <strong>4</strong><br>Geben Sie die Operation ein: <strong>a</strong><br>Geben Sie die zweite Zahl ein: <strong>5</strong><br>Der Operator wurde nicht korrekt eingegeben!<br></p></div><p></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>c_program</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <hidecheck>0</hidecheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload></answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer><![CDATA[#include <stdio.h>
+
+int main(void)
+{
+    // Erzeuge Variablen für die Ein- und Ausgabe
+    double operand1 = 0.0;
+    char operation = 0;
+    double operand2 = 0.0;
+    double ergebnis = 0.0;
+    
+    // Frage nach den Eingaben
+    printf("Geben Sie die erste Zahl ein:\n");
+    if(scanf("%lf", &operand1) != 1)
+    {
+        printf("Der erste Operand ist keine Zahl!\n");
+        return -1;
+    }
+    
+    getc(stdin);
+    
+    printf("Geben Sie die Operation ein:\n");
+    scanf("%c", &operation);
+    
+    printf("Geben Sie die zweite Zahl ein:\n");
+    if(scanf("%lf", &operand2) != 1)
+    {
+        printf("Der zweite Operand ist keine Zahl!\n");
+        return -1;
+    }
+    
+    // Berechnung das Ergebnises
+    switch(operation)
+    {
+        case '+':
+            ergebnis = operand1 + operand2;
+            break;
+        case '-':
+            ergebnis = operand1 - operand2;
+            break;
+        case '*':
+            ergebnis = operand1 * operand2;
+            break;
+        case '/':
+            if(operand2 == 0)
+            {
+                printf("Es kann nicht durch Null dividiert werden!\n");
+                return -1;
+            }
+            else
+            {
+                ergebnis = operand1 / operand2;
+                break;
+            }    
+        default:
+            printf("Der Operator wurde nicht korrekt eingegeben!\n");
+            return -1;
+    }
+    
+    printf("Das Ergebnis lautet: %lf\n", ergebnis);
+    
+    return 1;
+}
+]]></answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <templateparamslang>None</templateparamslang>
+    <templateparamsevalpertry>1</templateparamsevalpertry>
+    <templateparamsevald>{}</templateparamsevald>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <uiparameters></uiparameters>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>1</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text>4
++
+5
+</text>
+      </testcode>
+      <stdin>
+                <text>4
++
+5
+</text>
+      </stdin>
+      <expected>
+                <text>Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Das Ergebnis lautet: 9.000000</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text>4
+-
+5</text>
+      </testcode>
+      <stdin>
+                <text>4
+-
+5</text>
+      </stdin>
+      <expected>
+                <text>Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Das Ergebnis lautet: -1.000000</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text>4
+*
+5</text>
+      </testcode>
+      <stdin>
+                <text>4
+*
+5</text>
+      </stdin>
+      <expected>
+                <text>Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Das Ergebnis lautet: 20.000000</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text>4
+/
+5</text>
+      </testcode>
+      <stdin>
+                <text>4
+/
+5</text>
+      </stdin>
+      <expected>
+                <text>Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Das Ergebnis lautet: 0.800000</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text>a
+</text>
+      </testcode>
+      <stdin>
+                <text>a
+</text>
+      </stdin>
+      <expected>
+                <text>Geben Sie die erste Zahl ein:
+Der erste Operand ist keine Zahl!</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text>4
++
+a
+</text>
+      </testcode>
+      <stdin>
+                <text>4
++
+a
+</text>
+      </stdin>
+      <expected>
+                <text>Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Der zweite Operand ist keine Zahl!</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text>4
+/
+0
+</text>
+      </testcode>
+      <stdin>
+                <text>4
+/
+0
+</text>
+      </stdin>
+      <expected>
+                <text>Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Es kann nicht durch Null dividiert werden!</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text>4
+a
+5
+</text>
+      </testcode>
+      <stdin>
+                <text>4
+a
+5
+</text>
+      </stdin>
+      <expected>
+                <text>Geben Sie die erste Zahl ein:
+Geben Sie die Operation ein:
+Geben Sie die zweite Zahl ein:
+Der Operator wurde nicht korrekt eingegeben!</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+<!-- question: 7542432  -->
+  <question type="coderunner">
+    <name>
+      <text>Fakultät Iterativ</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Schreiben Sie eine Funktion welche die mathematische Funktion Fakultät iterativ berechnet.</p><p dir="ltr" style="text-align: left;">Ändern Sie den Namen der Funktion nicht!!</p><p dir="ltr" style="text-align: left;">Eingabe in die Funktion darf nur die Zahl sein, für die die Faklultät berechnet werden soll. Die Ausgabe soll ausschließlich das Ergebnis sein.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>c_function</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <hidecheck>0</hidecheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload>int fakultaet_iterativ(int n){
+    
+        return erg;
+}</answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer><![CDATA[int fakultaet_iterativ(int n){
+    int erg = 1;
+    for(int i= 1; i<=n; i++){
+        erg = erg*i;
+    }
+    
+    
+    return erg;
+}
+
+
+]]></answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <templateparamslang>None</templateparamslang>
+    <templateparamsevalpertry>1</templateparamsevalpertry>
+    <templateparamsevald>{}</templateparamsevald>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <uiparameters></uiparameters>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>1</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_iterativ(3));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>6</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_iterativ(5));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>120</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_iterativ(0));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>1</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_iterativ(11));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>39916800</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_iterativ(0));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>1</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_iterativ(1));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>1</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+<!-- question: 7542433  -->
+  <question type="coderunner">
+    <name>
+      <text>Fakultät Rekursiv</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Schreiben Sie eine Funktion welche die mathematische Funktion Fakultät rekursiv berechnet.</p><p dir="ltr" style="text-align: left;">Ändern Sie den Namen der Funktion nicht!!</p><p dir="ltr" style="text-align: left;">Eingabe in die Funktion darf nur die Zahl sein, für die die Faklultät berechnet werden soll. Die Ausgabe soll ausschließlich das Ergebnis sein.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>c_function</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <hidecheck>0</hidecheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload>int fakultaet_rekursiv(int n){
+    
+        return erg;
+}</answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer>int fakultaet_rekursiv(int n){
+    int erg;
+    if(n == 0){
+        erg = 1;
+    }
+    else{
+        erg = n*fakultaet_rekursiv(n-1);
+    }
+    
+    return erg;
+}
+
+
+</answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <templateparamslang>None</templateparamslang>
+    <templateparamsevalpertry>1</templateparamsevalpertry>
+    <templateparamsevald>{}</templateparamsevald>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <uiparameters></uiparameters>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>1</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_rekursiv(3));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>6</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_rekursiv(5));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>120</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_rekursiv(0));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>1</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%d",fakultaet_rekursiv(11));]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>39916800</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+<!-- question: 7542430  -->
+  <question type="coderunner">
+    <name>
+      <text>Kodekorrektur</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Bitte verbessern Sie die leichten Fehler im 'Hallo Welt' Programm.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>c_program</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <hidecheck>0</hidecheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload><![CDATA[include <stdio.h>
+
+int main() {
+    ret = 1;
+    printf("Hallo Welt");
+    return ret;
+}]]></answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer><![CDATA[#include <stdio.h>
+
+int main() {
+    int ret = 1;
+    printf("Hallo Welt");
+    return ret;
+}]]></answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <templateparamslang>None</templateparamslang>
+    <templateparamsevalpertry>1</templateparamsevalpertry>
+    <templateparamsevald>{}</templateparamsevald>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <uiparameters></uiparameters>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>1</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>Hallo Welt</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+<!-- question: 7542431  -->
+  <question type="coderunner">
+    <name>
+      <text>Kodekorrektur cast</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Irgendetwas stimmt im Programm nicht.</p><p dir="ltr" style="text-align: left;">Bitte beheben Sie den Fehler.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>c_program</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <hidecheck>0</hidecheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload><![CDATA[#include <stdio.h>
+
+int main() {
+    int a, b;
+    scanf("%d %d",&a,&b);
+    printf("%.2lf",a/b);
+    return 0;
+}]]></answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer><![CDATA[#include <stdio.h>
+
+int main() {
+    int a, b;
+    scanf("%d %d",&a,&b);
+    printf("%.2lf",a/(double)b);
+    return 0;
+}]]></answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <templateparamslang>None</templateparamslang>
+    <templateparamsevalpertry>1</templateparamsevalpertry>
+    <templateparamsevald>{}</templateparamsevald>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <uiparameters></uiparameters>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>1</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>2 3</text>
+      </stdin>
+      <expected>
+                <text>0.67</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>10 3</text>
+      </stdin>
+      <expected>
+                <text>3.33
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>100 10</text>
+      </stdin>
+      <expected>
+                <text>10.00</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>1 4</text>
+      </stdin>
+      <expected>
+                <text>0.25</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>5 5</text>
+      </stdin>
+      <expected>
+                <text>1.00</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>4 4</text>
+      </stdin>
+      <expected>
+                <text>1.00</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>12 5</text>
+      </stdin>
+      <expected>
+                <text>2.40</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+<!-- question: 7542427  -->
+  <question type="coderunner">
+    <name>
+      <text>Sortierfunktion</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Vervollständigen Sie die Funktion so, dass das Eingabearray aufsteigend (x &lt; y &lt; z) sortiert wird.</p><p dir="ltr" style="text-align: left;">Beispiel: 3,1,2 -&gt; 1,2,3<br></p><p dir="ltr" style="text-align: left;"><br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>c_function</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <hidecheck>0</hidecheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload>void sort(int arrLen, int arr[]) {
+    //Ihr Kode hier.
+}</answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer><![CDATA[void sort(int arrLen, int arr[]) {
+    int tmp;
+    int swapped = 0;
+    do {
+        swapped = 0;
+        for(int i=0; i<arrLen-1; i++) {
+            if(arr[i] > arr[i+1]) {
+                swapped = 1;
+                tmp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = tmp;
+            }
+        }
+    } while(swapped != 0);
+}]]></answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <templateparamslang>None</templateparamslang>
+    <templateparamsevalpertry>1</templateparamsevalpertry>
+    <templateparamsevald>{}</templateparamsevald>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <uiparameters></uiparameters>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>1</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[int arr[] = {1,2,3,4,5,6,7,8,9,10};
+sort(10,arr);
+for(int i=0; i<10; i++) 
+    printf("%d\n",arr[i]);
+]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[int arr[] = {5,6,1,8,9,3};
+sort(6,arr);
+for(int i=0; i<6; i++) 
+    printf("%d\n",arr[i]);
+]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>1
+3
+5
+6
+8
+9
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[int arr[] = {1,-2,3,-4,5,-6,7,-8,9,-10};
+sort(10,arr);
+for(int i=0; i<10; i++) 
+    printf("%d\n",arr[i]);
+]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>-10
+-8
+-6
+-4
+-2
+1
+3
+5
+7
+9
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[int arr[] = {-1,2,-3,4,-5,6,-7,8,-9,10};
+sort(10,arr);
+for(int i=0; i<10; i++) 
+    printf("%d\n",arr[i]);
+]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>-9
+-7
+-5
+-3
+-1
+2
+4
+6
+8
+10
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[int arr[] = {7,4,3,4,5,4,7,-8,35,1};
+sort(10,arr);
+for(int i=0; i<10; i++) 
+    printf("%d\n",arr[i]);
+]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>-8
+1
+3
+4
+4
+4
+5
+7
+7
+35
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+<!-- question: 7542428  -->
+  <question type="coderunner">
+    <name>
+      <text>Sortierprogramm</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Erstellen Sie ein Programm, welches eine Liste Zahlen einliest und diese dann aufsteigend (x &lt; y &lt; z) sortiert.</p><p dir="ltr">Beispiel: 3,1,2 -&gt; 1,2,3</p><br><p></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>c_program</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <hidecheck>0</hidecheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload><![CDATA[#include <stdio.h>
+
+
+int main()
+{
+    //Eingabe ...  nicht verändern
+    int arr[10]; //Hier werden nur zehn Zahlen erwartet.
+    for(int i=0; i<10; i++)
+        scanf("%d",arr[i]);
+    //Eingabe ... Ende
+    
+    
+    
+    //Ausgabe ... nicht verändern
+    for(int i=0; i<10; i++) 
+        printf("%d\n",arr[i]);
+    //Ausgabe ... Ende
+    return 0;
+}
+]]></answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer><![CDATA[#include <stdio.h>
+
+void sort(int arrLen, int arr[]) {
+    int tmp;
+    int swapped = 0;
+    do {
+        swapped = 0;
+        for(int i=0; i<arrLen-1; i++) {
+            if(arr[i] > arr[i+1]) {
+                swapped = 1;
+                tmp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = tmp;
+            }
+        }
+    } while(swapped != 0);
+}
+
+int main()
+{
+    
+    int arr[10];
+    for(int i=0; i<10; i++)
+        scanf("%d",&arr[i]);
+    
+    sort(10,arr);
+    
+    for(int i=0; i<10; i++) 
+        printf("%d\n",arr[i]);
+    
+    return 0;
+}
+]]></answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <templateparamslang>None</templateparamslang>
+    <templateparamsevalpertry>1</templateparamsevalpertry>
+    <templateparamsevald>{}</templateparamsevald>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <uiparameters></uiparameters>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>1</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>1 2 3 4 5 6 7 8 9 10</text>
+      </stdin>
+      <expected>
+                <text>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>1 -2 3 -4 5 -6 7 -8 9 -10</text>
+      </stdin>
+      <expected>
+                <text>-10
+-8
+-6
+-4
+-2
+1
+3
+5
+7
+9
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>5 6 1 8 9 3 1 2 3 7</text>
+      </stdin>
+      <expected>
+                <text>1
+1
+2
+3
+3
+5
+6
+7
+8
+9
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>1 -2 3 -4 5 -6 7 -8 9 -10</text>
+      </stdin>
+      <expected>
+                <text>-10
+-8
+-6
+-4
+-2
+1
+3
+5
+7
+9
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>HIDE</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>-1 2 -3 4 -5 6 -7 8 -9 10</text>
+      </stdin>
+      <expected>
+                <text>-9
+-7
+-5
+-3
+-1
+2
+4
+6
+8
+10
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>7 4 3 4 5 4 7 -8 35 1</text>
+      </stdin>
+      <expected>
+                <text>-8
+1
+3
+4
+4
+4
+5
+7
+7
+35
+</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+<!-- question: 7542426  -->
+  <question type="coderunner">
+    <name>
+      <text>Taschenrechner</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Programmieren sie<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>c_program</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <hidecheck>0</hidecheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload></answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer><![CDATA[#include <stdio.h>
+
+int main()
+{
+     int zahl1, zahl2, erg=0;
+     char op, temp;
+    
+     printf("Bitte 1. Zahl eingeben: \n");
+     scanf("%i",&zahl1);
+    
+    printf("Bitte Rechenoperation auswaehlen: \n");
+    scanf("%c %c",&temp,&op);
+    
+     printf("Bitte 2. Zahl eingeben: \n");
+     scanf("%i",&zahl2);
+    
+    
+    
+     switch (op)
+     {
+         case '+':
+             erg = zahl1 + zahl2;
+             printf("%i",erg);
+             break;
+         case '-':
+             erg = zahl1 - zahl2;
+             printf("%i",erg);
+             break;
+         case '*':
+             erg = zahl1 * zahl2;
+             printf("%i",erg);
+             break;
+         case '/':
+             erg = zahl1 / zahl2;
+             printf("%i",erg);
+             break;
+         default:
+             printf("%i", op);
+             break;
+     }
+     return 0;
+}
+]]></answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <templateparamslang>None</templateparamslang>
+    <templateparamsevalpertry>1</templateparamsevalpertry>
+    <templateparamsevald>{}</templateparamsevald>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <uiparameters></uiparameters>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>1</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>6
++
+7</text>
+      </stdin>
+      <expected>
+                <text>Bitte 1. Zahl eingeben: 
+Bitte Rechenoperation auswaehlen: 
+Bitte 2. Zahl eingeben: 
+13</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>7
+-
+6</text>
+      </stdin>
+      <expected>
+                <text>Bitte 1. Zahl eingeben: 
+Bitte Rechenoperation auswaehlen: 
+Bitte 2. Zahl eingeben: 
+1</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>6
+*
+6</text>
+      </stdin>
+      <expected>
+                <text>Bitte 1. Zahl eingeben: 
+Bitte Rechenoperation auswaehlen: 
+Bitte 2. Zahl eingeben: 
+36</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text></text>
+      </testcode>
+      <stdin>
+                <text>6
+/
+6</text>
+      </stdin>
+      <expected>
+                <text>Bitte 1. Zahl eingeben: 
+Bitte Rechenoperation auswaehlen: 
+Bitte 2. Zahl eingeben: 
+1</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+<!-- question: 7542429  -->
+  <question type="coderunner">
+    <name>
+      <text>Widerstände brechnen</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Schreiben Sie eine Funktion, die den Widerstand von drei in Reihe oder parallel geschalteten Widerständen berchenet. Um zwischen den verschiedenen Aufbauarten zu entscheiden geben Sie eine 1 für eine Reihenschaltung und 2 für die Parallelschaltung ein. Ändern sie nicht die Reihenfolge der Eingabe in die Funktion.<br></p><p dir="ltr" style="text-align: left;">Formel für die Reihenschaltung: <img src="@@PLUGINFILE@@/grafik.png" alt="" role="presentation"></p><p dir="ltr" style="text-align: left;"></p><p dir="ltr"></p><p dir="ltr">Formel für die Parallelschaltung:<img src="@@PLUGINFILE@@/grafik%20%281%29.png" alt="" role="presentation"></p><p dir="ltr"><br></p><p></p>]]></text>
+<file name="grafik (1).png" path="/" encoding="base64">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</file>
+<file name="grafik.png" path="/" encoding="base64">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</file>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <coderunnertype>c_function</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <hidecheck>0</hidecheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload>float Widerstand(float Ra, float Rb , float Rc ,int Aufbau)
+{
+    float Rg;
+    
+    return Rg;
+}</answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer>float Widerstand(float Ra, float Rb , float Rc ,int Aufbau)
+{
+    float Rg;
+    switch(Aufbau){
+        case 1 :
+        Rg = Ra+Rb+Rc;
+        
+        break;
+        
+        case 2 :
+        Rg = 1/((1/Ra)+(1/Rb)+(1/Rc));
+        break;
+        
+       
+        
+        default:
+        return 0;
+        
+    }   
+    return Rg;
+}</answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <templateparamslang>None</templateparamslang>
+    <templateparamsevalpertry>1</templateparamsevalpertry>
+    <templateparamsevald>{}</templateparamsevald>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <uiparameters></uiparameters>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>1</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%f",Widerstand(3,3,3,1))]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>9.000000</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%f",Widerstand(3,3,3,2))]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>1.000000</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%f",Widerstand(1,1,1,1))]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>3.000000</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text><![CDATA[printf("%f",Widerstand(1,1,1,2))]]></text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>0.333333</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+</quiz>
